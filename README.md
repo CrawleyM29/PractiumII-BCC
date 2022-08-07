@@ -87,3 +87,12 @@ Tuples is used for information about the training, testing sets, and validation-
 ![Building Training Set](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Building-Training-Set.JPG)
 
    
+## Cancernet.py
+
+The CNN (Convolutional Neural Network) will be built and nameing the network 'CancerNet'.  The network will perform the following:
+
+        -Using 3,3 CONV filter(s)
+        -Perform max-pooling
+        -Stacking filters on top of one another
+        -Using depthwise separable convolutions for more efficincy and consume less memory
+        
