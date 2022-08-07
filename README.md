@@ -84,6 +84,6 @@ Original paths will be built with the images, importing os, shutil, imutils, ran
 
 Tuples is used for information about the training, testing sets, and validation--holding the paths and base path for each. Each setType, base path, and path in the list, we'll print, saying 'Building testing set', while also creating a directory if the path does not exist.  
 
-![Building Training Set](E:\Regis\MSDS 696\ScS\Building-Training-Set)
+![Building Training Set]([E:\Regis\MSDS 696\ScS\Building-Training-Set](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Building-Training-Set.JPG))
 
    
