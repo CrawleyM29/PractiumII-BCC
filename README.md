@@ -96,3 +96,16 @@ The CNN (Convolutional Neural Network) will be built and nameing the network 'Ca
         -Stacking filters on top of one another
         -Using depthwise separable convolutions for more efficincy and consume less memory
         
+![Building Cancernet](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/CancerNet.JPG)
+
+Sequential API is being used to help build CancerNet and SeparableConv2D for depthwise convolutions.  CancerNet has a static method build with four parameters: height and width of the images, the depth (amount of color channels in each image), and the number of classes the network will predict between (for us there are 2: 0 and 1).  
+
+## Train_model.py
+
+ ### Output 1st Half
+       
+![Cancernet 1st Half](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/cancernet1.JPG)
+
+### Output 2nd Half
+
+![Cancernet 2nd Half](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/cancernet2.JPG)
