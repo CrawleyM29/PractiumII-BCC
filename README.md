@@ -1,4 +1,4 @@
-# PractiumII-Breast Cancer Classification 
+# Practium II-Breast Cancer Classification 
 
 ## Abstract
 
@@ -6,9 +6,21 @@ Creating an AI that will classify breast cancer as ether Benign or Malignant usi
 
 Invasive Ductal Carcinoma (IDC) is a cancer that develops in the milk duct, invading the fibrous and/or fatty breast tissue outside the duct.  This type of cancer is most common type of brease cancer forming 80% of all breast cacer diagnoses.  Histology is the study of the microscopic structure of tissues.
 
+
+## Table of Contents
+
+  1. About the Dataset
+  2. Config.py
+  3. Build_dataset.py
+  4. Cancernet.py
+  5. Train_model.py
+  6. Results
+  7. Summary
+  8. References
+        
 ## About the Dataset
 
-I am uzing the IDC_regular dataset (histology image dataset) from Kaggle.  The dataset holds 2,077,524 patches that are 50x50 in size and extracted from 162 whole mount slide images of breast cancer specimens that were scanned at 40x.  In these images, 1,098,738 test negative 78,786 are tested positive with IDC. This dataset is available in public domain and you can be downloaded [here](https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images).
+I am uzing the IDC_regular dataset (histology image dataset) from Kaggle.  The dataset holds 2,077,524 patches that are 50x50 in size and extracted from 162 whole mount slide images of breast cancer specimens that were scanned at 40x.  In these images, 1,098,738 test negative 78,786 are tested positive with IDC. This dataset is available in public domain and you can be downloaded [Here](https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images)
 
 You will need to install some python packages to be able to run this advanced python project.  You can do this with pip-
         
@@ -18,6 +30,7 @@ Inside the inner breast-cancer-classification directory, I created a directory d
 
         mkdir datasets
         mkdir datasets\original 
+
 
 ## Config.py
 
@@ -37,7 +50,7 @@ Config.py holds some configurations we will need for building the dataset and tr
 
 I declared the path to the input dataset (.../datasets/original), the new directory (.../datasets/idc), and the validation, training, and testing path directories using the base path.  Also, declaring that 80% of our dataset will be used for training purposes while 10% of the training data is used for validation.
 
-## build_dataset.py
+## Build_dataset.py
 
 This section will be splitting our dataset into testing sets, training, and validation in the mentioned ratio above - 80% for training (of that, 10% for validation) and 20% for testing.  Using Keras, ImageDataGenerator, batches of images will be extracted to help avoid making space for all of our dataset at once.
 
@@ -102,6 +115,10 @@ Sequential API is being used to help build CancerNet and SeparableConv2D for dep
 
 ## Train_model.py
 
+We are now train and evaluate our model by importing from keras, cancernet, sklearn, config, imutils, matplotlib, and os.
+
+By setting initial values for the number of epochs, the learning rate, and batch size, we will get the number of paths in the three directories for training, testing, and validation.  After, we will then get the class weight for the training data so we can deal with the imbalance.  We then initilize the training data augmentation object-- a process of regularization which helps generalize the model.  At this time, we slightly modify the training examples to help avoid the need for more training data.
+
  ### Output 1st Half
        
 ![Cancernet 1st Half](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/cancernet1.JPG)
@@ -109,3 +126,17 @@ Sequential API is being used to help build CancerNet and SeparableConv2D for dep
 ### Output 2nd Half
 
 ![Cancernet 2nd Half](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/cancernet2.JPG)
+
+We have successfully trained our dataset!  Results are below.
+
+## Results
+
+**Inputing data images in week 7**
+
+## Summary
+
+**Inputing data images in week 7**
+
+## References
+
+Dataset: https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images
