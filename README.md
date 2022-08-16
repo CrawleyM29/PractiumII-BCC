@@ -14,11 +14,12 @@ Invasive Ductal Carcinoma (IDC) is a cancer that develops in the milk duct, inva
   3. Build_dataset.py
   4. Cancernet.py
   5. Train_model.py
-  6. Results
-  7. Summary
-  8. References
+  6. Deep Learning Results
+  7.  Data Exploration Results
+  8. Summary
+  9. References
         
-## About the Dataset
+## 1. About the Dataset
 
 I am uzing the IDC_regular dataset (histology image dataset) from Kaggle.  The dataset holds 2,077,524 patches that are 50x50 in size and extracted from 162 whole mount slide images of breast cancer specimens that were scanned at 40x.  In these images, 1,098,738 test negative 78,786 are tested positive with IDC. This dataset is available in public domain and you can be downloaded [Here](https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images)
 
@@ -32,7 +33,7 @@ Inside the inner breast-cancer-classification directory, I created a directory d
         mkdir datasets\original 
 
 
-## Config.py
+## 2. Config.py
 
 Config.py holds some configurations we will need for building the dataset and training the model.  You'll find this in the directory 'cancernet'.  Due to the nature of my project, I don't have models until the end of training.
 
@@ -50,7 +51,7 @@ Config.py holds some configurations we will need for building the dataset and tr
 
 I declared the path to the input dataset (.../datasets/original), the new directory (.../datasets/idc), and the validation, training, and testing path directories using the base path.  Also, declaring that 80% of our dataset will be used for training purposes while 10% of the training data is used for validation.
 
-## Build_dataset.py
+## 3. Build_dataset.py
 
 This section will be splitting our dataset into testing sets, training, and validation in the mentioned ratio above - 80% for training (of that, 10% for validation) and 20% for testing.  Using Keras, ImageDataGenerator, batches of images will be extracted to help avoid making space for all of our dataset at once.
 
@@ -100,7 +101,7 @@ Tuples is used for information about the training, testing sets, and validation-
 ![Building Training Set](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Building-Training-Set.JPG)
 
    
-## Cancernet.py
+## 4. Cancernet.py
 
 The CNN (Convolutional Neural Network) will be built and nameing the network 'CancerNet'.  The network will perform the following:
 
@@ -113,7 +114,7 @@ The CNN (Convolutional Neural Network) will be built and nameing the network 'Ca
 
 Sequential API is being used to help build CancerNet and SeparableConv2D for depthwise convolutions.  CancerNet has a static method build with four parameters: height and width of the images, the depth (amount of color channels in each image), and the number of classes the network will predict between (for us there are 2: 0 and 1).  
 
-## Train_model.py
+## 5. Train_model.py
 
 We are now train and evaluate our model by importing from keras, cancernet, sklearn, config, imutils, matplotlib, and os.
 
@@ -129,14 +130,54 @@ By setting initial values for the number of epochs, the learning rate, and batch
 
 We have successfully trained our dataset!  Results are below.
 
-## Results
+## 6. Results for Deep Learning
 
-**Inputing data images in week 7**
+I am seperating my results into two sections: Results in Data Training using Deep Learning, and Data Exploration to learn our data.
 
-## Summary
+Deep Learning and training my AI is the main focus for my project.  However, I wanted to see what my data was telling me story wise for future insights purposes.
 
-**Inputing data images in week 7**
+### Results 1: Dropping ID and Unnamed
 
-## References
+I removed patient ID's and those that are not named malignant or benign.  We now have 2-columns that show the total that are left over:
+
+![Results1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Not.trained_MALvsBEN.JPG)
+
+### Results 2: Deep Learning - Training
+
+sing Deep Learning to train our data, I used batch size of 20 epochs to create hyperparameters to harmonize during deep learning for quicker results when it comes to time management. Results show that the learning rate is determined to be 0.0001. To this reate, I applyed Dense layer with two neurons for two output classes (benign and malignant) with activation function as a softmax. Also used is Adam optimizer for optimization. The results are below:
+
+![DLT](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Deep%20Learning%20Results.png)
+
+### Results 3: After Training
+
+The following results show our accuracy of 98.87% after applying the binary-cross-entropy for loss function and Adam optimizer for optimization. We can see that the orange bar that represents testing, starts at 88% and jaggid up to approximatly 92%. The blue line, representing training, goes from 87% to 98.87% accuracy.  Success! 
+
+![Results2](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Model%20Accuracy.png) 
+
+## 7. Data Exploration Results
+
+The following results showcases data exploration to get to know our dataset (even though training our AI (Artificial Intelligence) is the main focus of this project).  I enjoy learning what the data holds and what story it tells us so we can focus on future ideas to increase the accuracy of our AI.
+
+### Results 4: Violin Plot
+
+The first image is showcasing the median of texture_mean for Malignant and Benign.  The shape indicates the two are separated, and yet for fractal_dimension_mean, it's close together:
+
+![ViolinPl1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/violin_graph_median.JPG)
+
+The second shape of the violin plot for area_se looks warped with the distribution points for benign and malignant being very different. This showcases that our AI is able to seperate the images according to thw two focuses (benign/malignat).  Variance looks highest for fractal_dimension_worst and concavity_worst with concave_points_worst seems to be similar data distribution.
+
+![ViolinPl1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Violin_graph_median2.png)
+
+### Results 5: Heatmap
+
+The heatmap has a correlation of > 0.8, means, std errors and worst dimension lengths of compactness, concavity and points of the concave are high in correlation to one anter.  Our Mean, worst dimensions of radius, std errors, area and perimeter of tumors have a correlation of 1.  Results below:
+
+![Heatmap](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Correlation%20heatmap_testing.JPG)
+
+## 8. Summary
+
+The deep learning AI training is a success and distinguishes which images are benign and malignant breast cancer from a combination of small imaging using Deep Learning Python with a 98.87% success rate and using exploratory data to understand our dataset for better results.
+
+## 9. References
 
 Dataset: https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images
