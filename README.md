@@ -150,7 +150,7 @@ sing Deep Learning to train our data, I used batch size of 20 epochs to create h
 
 ### Results 3: After Training
 
-The following results show our accuracy of 98.87% after applying the binary-cross-entropy for loss function and Adam optimizer for optimization. We can see that the orange bar that represents testing, starts at 88% and jaggid up to approximatly 92%. The blue line, representing training, goes from 87% to 98.87% accuracy.  Success! 
+The following results show our accuracy of 98.87% after applying the binary-cross-entropy for loss function and Adam optimizer for optimization. We can see that the orange bar that represents testing, starts at 88% and jagged up to approximately 92%. The blue line, representing training, goes from 87% to 98.87% accuracy. Success!
 
 ![Results2](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Model%20Accuracy.png) 
 
