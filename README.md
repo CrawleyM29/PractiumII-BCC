@@ -176,7 +176,7 @@ The heatmap has a correlation of > 0.8, means, std errors and worst dimension le
 
 ## 8. Summary
 
-The deep learning AI training is a success and distinguishes which images are benign and malignant breast cancer from a combination of small imaging using Deep Learning Python with a 98.87% success rate and using exploratory data to understand our dataset for better results.
+The deep learning AI training is a success and distinguishes which images are benign and malignant breast cancer from a combination of small imaging using Deep Learning Python with a 98.87% success rate and using exploratory data to understand our dataset for better results, and showcasing that our Malignant and Benign are great features after training.
 
 ## 9. References
 
