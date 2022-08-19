@@ -6,6 +6,9 @@ Creating an AI that will classify breast cancer as ether Benign or Malignant usi
 
 Invasive Ductal Carcinoma (IDC) is a cancer that develops in the milk duct, invading the fibrous and/or fatty breast tissue outside the duct.  This type of cancer is most common type of brease cancer forming 80% of all breast cacer diagnoses.  Histology is the study of the microscopic structure of tissues.
 
+### Notes
+
+My slides are anly showcasing my Deep Learning as that is what my class is for.  However, I am including Data Exploraton (before AI Training) to showcase skills for future opportunities.
 
 ## Table of Contents
 
@@ -15,7 +18,7 @@ Invasive Ductal Carcinoma (IDC) is a cancer that develops in the milk duct, inva
   4. Cancernet.py
   5. Train_model.py
   6. Deep Learning Results
-  7.  Data Exploration Results
+  7. Data Exploration Results
   8. Summary
   9. References
         
@@ -142,23 +145,40 @@ I removed patient ID's and those that are not named malignant or benign.  We now
 
 ![Results1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Not.trained_MALvsBEN.JPG)
 
-### Results 2: Deep Learning - Training
+### Results 2: Hyper Parameter Tuning
 
-sing Deep Learning to train our data, I used batch size of 20 epochs to create hyperparameters to harmonize during deep learning for quicker results when it comes to time management. Results show that the learning rate is determined to be 0.0001. To this reate, I applyed Dense layer with two neurons for two output classes (benign and malignant) with activation function as a softmax. Also used is Adam optimizer for optimization. The results are below:
+A goal of mine was to reduce the False Negatives (FN) due to tumors  which are malignant should not be classified as benign even if that means the model may classify a few benign tumors as malgnant.  By using sklearn's 'fbeta_score' as our scoring function with GridSearchCV.A beat > 1 to make 'fbeta_score' favor our recall over precision.
+
+At first, our grid searching of 'M' is a 2 score which means that our FN's are showing as Malgnant.  We really need to get this a 1:
+
+![FNScore2](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/False_Neg%202.score.JPG)
+
+After setting the decision threshold to 0.42, we have succuffully reached aour goal of FN to 1:
+
+![FNScore1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/FT_Score.1.JPG)
+
+### Results 3: Deep Learning - Training
+
+Deep Learning to train our data, I used batch size of 20 epochs to create hyperparameters to harmonize during deep learning for quicker results when it comes to time management. Results show that the learning rate is determined to be 0.0001. To this reate, I applyed Dense layer with two neurons for two output classes (benign and malignant) with activation function as a softmax. Also used is Adam optimizer for optimization. The results are below:
 
 ![DLT](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Deep%20Learning%20Results.png)
 
-### Results 3: After Training
-
-The following results show our accuracy of 98.87% after applying the binary-cross-entropy for loss function and Adam optimizer for optimization. We can see that the orange bar that represents testing, starts at 88% and jagged up to approximately 92%. The blue line, representing training, goes from 87% to 98.87% accuracy. Success!
+### Results 4: Deep Learning Outcome
+After  hyper tuning our data with parameters and deep learning pushed to the AI, I have successfully training our AI to classify breast cancer to show the differences between Malignant or Benign with a 98.87% success rate:
 
 ![Results2](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Model%20Accuracy.png) 
 
-## 7. Data Exploration Results
+This is after 
+
+### Results 5: After Training
+
+The following results show our accuracy of 98.87% after applying the binary-cross-entropy for loss function and Adam optimizer for optimization. We can see that the orange bar that represents testing, starts at 88% and jagged up to approximately 92%. The blue line, representing training, goes from 87% to 98.87% accuracy.
+
+## Results 6. Data Exploration Results
 
 The following results showcases data exploration to get to know our dataset (even though training our AI (Artificial Intelligence) is the main focus of this project).  I enjoy learning what the data holds and what story it tells us so we can focus on future ideas to increase the accuracy of our AI.
 
-### Results 4: Violin Plot
+### Results 7: Violin Plot
 
 The first image is showcasing the median of texture_mean for Malignant and Benign.  The shape indicates the two are separated, and yet for fractal_dimension_mean, it's close together:
 
@@ -168,7 +188,7 @@ The second shape of the violin plot for area_se looks warped with the distributi
 
 ![ViolinPl1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/Violin_graph_median2.png)
 
-### Results 5: Heatmap
+### Results 8: Heatmap
 
 The heatmap has a correlation of > 0.8, means, std errors and worst dimension lengths of compactness, concavity and points of the concave are high in correlation to one anter.  Our Mean, worst dimensions of radius, std errors, area and perimeter of tumors have a correlation of 1.  Results below:
 
