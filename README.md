@@ -153,7 +153,7 @@ At first, our grid searching of 'M' is a 2 score which means that our FN's are s
 
 ![FNScore2](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/False_Neg%202.score.JPG)
 
-After setting the decision threshold to 0.42, we have succuffully reached aour goal of FN to 1:
+After setting the decision threshold to 0.42, we have succuffully reached our goal of FN to 1:
 
 ![FNScore1](https://github.com/CrawleyM29/PractiumII-BCC/blob/data-engineering/Plots/FT_Score.1.JPG)
 
