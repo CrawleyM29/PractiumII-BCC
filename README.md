@@ -8,7 +8,7 @@ Invasive Ductal Carcinoma (IDC) is a cancer that develops in the milk duct, inva
 
 ### Notes
 
-My slides are anly showcasing my Deep Learning as that is what my class is for.  However, I am including Data Exploraton (before AI Training) to showcase skills for future opportunities.
+My slides are only showcasing my Deep Learning as that is what my class is for.  However, I am including Data Exploraton (before AI Training) to showcase skills for future opportunities.
 
 ## Table of Contents
 
